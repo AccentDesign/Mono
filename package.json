@@ -24,6 +24,7 @@
     },
     "homepage": "https://github.com/accentdesign/mono",
     "dependencies": {
-        "@frctl/mandelbrot": "^1.2.0"
+        "@frctl/mandelbrot": "^1.2.0",
+        "lodash": "^4.17.15"
     }
 }
