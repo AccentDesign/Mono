@@ -8,12 +8,22 @@
     color: $color-black;
     height: 60px;
     margin-bottom: 40px;
-    justify-content: space-between;
+    justify-content: start;
     padding: 0 40px;
     a {
         font-size: 21px;
         font-weight: 700;
     }
+}
+
+[dir=ltr] .Header-button {
+  margin-left: -3rem;
+  border: 0 none;
+}
+
+[dir=rtl] .Header-button {
+  margin-right: -3rem;
+  border: 0 none;
 }
 
 .Header-Utils {

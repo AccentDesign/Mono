@@ -1,13 +1,12 @@
 /* Sidebar
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-.Navigation { padding-right: 20px; }
+[dir=ltr] .Navigation { padding-right: 20px; }
+[dir=rtl] .Navigation { padding-left: 20px; }
 
 .Tree-title {
     background-color: transparent;
     border: 1px solid $color-light-grey;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
     color: rgba(34,37,43,.54);
     font-family: $font-family;
     font-size: 16px;
@@ -17,7 +16,18 @@
     padding: 12px 40px;
 }
 
+[dir="ltr"] .Tree-title {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+[dir="rtl"] .Tree-title {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
 [dir="ltr"] .Tree-title { padding-left: 40px; }
+[dir="rtl"] .Tree-title { padding-right: 40px; }
 
 .Tree-items.Tree-depth-1 { padding-top: 5px; }
 
@@ -27,9 +37,15 @@
     font-size: 16px;
 }
 
-.Tree-entityLink {
+[dir="ltr"] .Tree-entityLink {
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
+    padding: 7px 40px !important;
+}
+
+[dir="rtl"] .Tree-entityLink {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
     padding: 7px 40px !important;
 }
 
@@ -50,19 +66,54 @@
         font-family: $font-family;
         font-size: 16px;
         letter-spacing: 1px;
-        padding: 7px 0 !important;
         text-transform: uppercase;
         span {
-            padding-left: 40px !important;
             &:before {
                 height: 26px;
-                left: 0 !important;
                 top: 2px;
                 width: 26px;
             }
         }
     }
-    .Tree-collectionItems { margin-left: 20px; }
+}
+
+
+[dir="ltr"] {
+    #tree-components-collection-atoms,
+    #tree-components-collection-molecules,
+    #tree-components-collection-organisms,
+    #tree-components-collection-templates,
+    #tree-components-collection-pages {
+        > h3 {
+            padding: 7px 0 !important;
+            span {
+                padding-left: 40px !important;
+                &:before {
+                    left: 0 !important;
+                }
+            }
+        }
+        .Tree-collectionItems .Tree-collectionItems { margin-left: 20px; }
+    }
+}
+
+[dir="rtl"] {
+    #tree-components-collection-atoms,
+    #tree-components-collection-molecules,
+    #tree-components-collection-organisms,
+    #tree-components-collection-templates,
+    #tree-components-collection-pages {
+        > h3 {
+            padding: 7px 0 7px !important;
+            span {
+                padding-right: 40px !important;
+                &:before {
+                    right: 0 !important;
+                }
+            }
+        }
+        .Tree-collectionItems .Tree-collectionItems { margin-right: 20px; }
+    }
 }
 
 #tree-components-collection-atoms {
@@ -74,16 +125,38 @@
 #tree-components-collection-templates > h3 span:before { background-image: url('img/icon-templates.svg') !important; }
 #tree-components-collection-pages > h3 span:before { background-image: url('img/icon-pages.svg') !important; }
 
-.Tree-depth-3 > .Tree-collectionLabel { padding: 7px 20px !important; }
-.Tree-depth-4 > .Tree-collectionLabel { padding: 7px 20px !important; }
+[dir="ltr"] {
+    .Tree-depth-3 > .Tree-collectionLabel { padding: 7px 0px !important; }
+    .Tree-depth-4 > .Tree-collectionLabel { padding: 7px 0px !important; }
+}
 
-.Tree-collectionItems {
-    margin-left: 40px;
-    .Tree-entityLink {
-        margin-left: 0 !important;
-        padding: 7px 20px !important;
+[dir="rtl"] {
+    .Tree-depth-3 > .Tree-collectionLabel { padding: 7px 0 !important; }
+    .Tree-depth-4 > .Tree-collectionLabel { padding: 7px 0 !important; }
+}
+
+[dir="ltr"] {
+
+    .Tree-collectionItems {
+        margin-left: 40px;
+        .Tree-entityLink {
+            margin-left: 0 !important;
+            padding: 7px 0px !important;
+        }
     }
-    .Tree-collectionItems { margin-left: 20px; }
+
+}
+
+[dir="rtl"] {
+
+    .Tree-collectionItems {
+        margin-right: 40px;
+        .Tree-entityLink {
+            margin-right: 0 !important;
+            padding: 7px 0 !important;
+        }
+    }
+
 }
 
 .Tree-collectionLabel {
@@ -92,14 +165,10 @@
     font-size: 16px;
     padding: 7px 40px !important;
     span {
-        margin-left: 0 !important;
-        padding-left: 0 !important;
         &:before {
             background-image: url('img/icon-navigation-opened.svg') !important;
             background-size: auto;
-            left: initial !important;
             opacity: 1;
-            right: 0 !important;
             top: 5px;
         }
     }
@@ -107,6 +176,32 @@
         background-color: transparent;
         color: $color-grey !important;
         transition: all 0.15s ease-out;
+    }
+}
+
+[dir="ltr"] {
+    .Tree-collectionLabel {
+        span {
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+            &:before {
+                left: initial !important;
+                right: 0 !important;
+            }
+        }
+    }
+}
+
+[dir="rtl"] {
+    .Tree-collectionLabel {
+        span {
+            margin-right: 0 !important;
+            padding-right: 0 !important;
+            &:before {
+                right: initial !important;
+                left: 0 !important;
+            }
+        }
     }
 }
 
